@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
+    <title>
+        <%=title %>
+    </title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Create Account</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="/signup" method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="First Name" type="text" name="firstName" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Last Name" type="text" name="lastName" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Email" type="email" name="email" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="ID Number" type="text" name="username" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="userType">Account Type:</label>
+                                            <select class="form-control" name="userType" id="userType">
+                                                <option value="0" selected>Staff</option>
+                                                <option value="1">Student</option>
+                                            </select>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-6">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Phone Number" type="text" name="phone" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Address" type="text" name="address" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="City" type="text" name="city" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Country" type="text" name="country" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Password" type="password" name="password" />
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="checkbox">
+                                        <label>
+                                            <% for(var i in messages) { %>
+                                                <div class="flash">
+                                                    <span><%= messages[i] %></span>
+                                                </div>
+                                                <% } %>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input type="submit" value="Sign up" />
+                                    </div>
+                                    <div>
+                                        <em><a href="/signin">Sign in</a></em>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

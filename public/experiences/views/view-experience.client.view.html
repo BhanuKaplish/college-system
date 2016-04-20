@@ -1,0 +1,20 @@
+<section data-ng-controller="ExperiencesController" data-ng-init="findOne()">
+    <h2><a href="/#!/">Home</a></h2>
+    <h1 data-ng-bind="experience.position"></h1>    
+    <small>
+        <em>Created on</em>
+        <em data-ng-bind="experience.created | date: 'mediumDate'"></em>
+        <em>by</em>
+        <em data-ng-bind="experience.creator.fullName"></em>
+    </small>
+    <p>Company Name: <span data-ng-bind="experience.company_name"></span></p>
+    <p>City: <span data-ng-bind="experience.city"></span></p>
+    <p>Country: <span data-ng-bind="experience.country"></span></p>
+    <p>Start Date: <span data-ng-bind="experience.start_date | date: 'mediumDate'"></span></p>
+    <p>End Date: <span data-ng-bind="experience.end_date | date: 'mediumDate'"></span></p>
+    <p>Details: <span data-ng-bind="experience.details"></span></p>
+    <div data-ng-show="authentication.user._id == experience.creator._id">
+        <a href="/#!/experiences/{{experience._id}}/edit">Edit</a>
+        <a href="#" data-ng-click="delete();">Delete</a>
+    </div>
+</section>

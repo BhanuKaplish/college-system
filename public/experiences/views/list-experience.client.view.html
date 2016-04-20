@@ -1,0 +1,18 @@
+<section data-ng-controller="ExperiencesController" data-ng-init="find()">
+    <h2><a href="/#!/">Home</a></h2>
+    <h1>Work Experience</h1>
+    <ul>
+        <li data-ng-repeat="experience in experiences">
+            <a data-ng-href="#!/experiences/{{experience._id}}" data-ng-bind="experience.company_name"></a>
+            - <span data-ng-bind="experience.city"></span>,<span data-ng-bind="experience.country"></span>
+            </br>
+            <small data-ng-bind="experience.created | date: 'medium'"></small>
+            <small>/</small>            
+            <p>Position: <span data-ng-bind="experience.position"></span></p>
+            <p data-ng-bind="experience.details"></p>
+        </li>
+    </ul>
+    <div data-ng-hide="!experiences || experiences.length">
+    No articles yet, why don't you <a href="/#!/experiences/create">create one</a>    No articles yet, why don't you <a href="/#!/experiences/create">create one</>'        
+    </div>
+</section>

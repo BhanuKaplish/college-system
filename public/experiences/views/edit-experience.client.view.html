@@ -1,0 +1,54 @@
+<section data-ng-controller="ExperiencesController" data-ng-init="findOne()">
+    <h2><a href="/#!/">Home</a></h2>
+    <h1>Edit Articles</h1>
+    <form data-ng-submit="update()" novalidate>
+        <div>
+            <label for="title">Title</label>
+            <div>
+                <input type="text" data-ng-model="experience.company_name" id="title" placeholder="Title" required>
+            </div>
+        </div>
+        <div>
+            <label for="city">City</label> 
+            <div>
+                <input type="text" data-ng-model="experience.city" id="city" placeholder="City" required>
+            </div>
+        </div>
+        <div>
+            <label for="country">Country</label> 
+            <div>
+                <input type="text" data-ng-model="experience.country" id="country" placeholder="Country" required>
+            </div>
+        </div>
+        <div>
+            <label for="position">Position</label> 
+            <div>
+                <input type="text" data-ng-model="experience.position" id="position" placeholder="Position" required>
+            </div>
+        </div>
+        <div>
+            <label for="start_date">Start date</label> 
+            <div>
+                <input type="text" datetime="yyyy-MM-dd" data-ng-model="experience.start_date" id="start_date" placeholder=">Start date" required>
+            </div>
+        </div>
+        <div>
+            <label for="end_date">End date</label> 
+            <div>
+                <input type="text" datetime="yyyy-MM-dd"  data-ng-model="experience.end_date" id="end_date" placeholder=">End date" required>
+            </div>
+        </div>
+        <div>
+            <label for="details">Content</label>
+            <div>
+                <textarea data-ng-model="experience.details" id="details" cols="30" rows="10" placeholder="Details" ></textarea>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Update">
+        </div>
+        <div data-ng-show="error">
+            <strong data-ng-bind="error"></strong>
+        </div>
+    </form>
+</section>

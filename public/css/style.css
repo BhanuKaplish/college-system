@@ -1,0 +1,181 @@
+/*
+    Manuel Castro
+    300772473
+*/
+
+.login-panel {
+    margin-top: 25%;
+}
+
+@media only screen and (max-width: 460px) {
+    .main-box 
+    {
+    left: 50%;
+    width: 90%;
+    margin: auto;
+    }
+    
+    a {
+    display: block;
+    background: white;
+    padding: 7px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    text-decoration: none;
+    }
+    
+    input {
+    height: 30px;
+    width: 100%;
+    }
+}
+
+@media only screen and (min-width: 461px) {
+    .main-box 
+    {
+    left: 50%;
+    width: 50%;
+    margin: auto;
+    }
+    
+    a {
+    display: inline-block;
+    background: white;
+    padding: 7px;
+    margin: 5px;
+    text-decoration: none;
+    }
+    
+    input {
+    height: 30px;
+    }
+}
+
+textarea {
+    width: 100%;
+}
+
+span {
+    font-weight: bold;
+    color: navy;
+}
+
+input[type=submit] {   
+    background:navy; 
+    border:0 none;
+    cursor:pointer; 
+    min-width: 150px;
+    color: white;
+}
+
+input, textarea {   
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif   
+}
+
+form span {
+    margin-bottom: 5px;
+}
+
+.feedback-box {
+    background: white;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.message {
+    background: black;
+    display: inline-block;
+    color: white;
+    margin: 0px;
+    padding: 13px;
+}
+
+.title {
+    background: black;
+    display: inline-block;
+    color: white;
+    margin-top: 13px;
+    padding: 13px;
+}
+
+.red {
+    background: darkred;
+}
+
+.gold {
+    background: gold;
+}
+
+.blue {
+    background: navy;
+}
+
+.navbar-inverse {
+    background-color: black;    
+}
+
+.white-box {
+    background-color: white;
+    padding: 10px;
+}
+
+.box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+}
+
+.logo {
+    width: 100%;
+}
+
+.animation {
+    display: block;
+    margin: auto;
+}
+
+.img-circle {
+    display: block;
+    margin: auto;
+    border: black;
+    border-style: solid;
+}
+
+.btn-mail {
+    background-color: black;
+    padding-top: 12px;
+    padding-bottom: 12px;  
+    font-size: 16px;
+    border-color: black;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ 
+li {
+  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
+}
+ 
+li:last-child {
+  border: none;
+}
+ 
+li a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  width: 200px;
+ 
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+ 
+li a:hover {
+  font-size: 30px;
+  background: #f6f6f6;
+}

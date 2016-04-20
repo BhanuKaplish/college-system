@@ -9,20 +9,40 @@
         <h2><a href="/signup">Signup</a></h2>
         <h2><a href="/signin">Signin</a></h2>
     </div>
+     <div class= "navbar navbar-static">        <!-- Creating navigation bar -->
+        <div class =  "container green">
+            
+            <div data-ng-show="authentication.user && authentication.user.userType == 0">
+            <img src="./img/CollegeLogo.png">
+            <div class="navbar-text pull-right">
+            <h2>Hello, <span data-ng-bind="authentication.user.fullName"></span> (Staff)</h2>
+                <a href="/signout">Logout</a>
+            </div>
+            </div>
+            
+            <div data-ng-show="authentication.user && authentication.user.userType == 1">
+            <img src="./img/CollegeLogo.png">
+            <div class="navbar-text pull-right">
+            <h1>Hello, <span data-ng-bind="authentication.user.fullName"></span> (Student)</h1>
+                <a href="/signout">Logout</a>
+            </div>    
+            </div>          
+        
+        </div> 
+    </div> 
+    
+ 
     <div data-ng-show="authentication.user && authentication.user.userType == 0">
-        <h1>Hello <span data-ng-bind="authentication.user.fullName"></span> Staff</h1>
-        <h3><a href="/signout">Signout</a></h3>
         <ul>
-            <li><a href="/#!/experiences/">List Work Experience</a></li>
-            <li><a href="/#!/experiences/create">Add Work Experience</a></li>
+            <li><a href="/#!/experiences/">List Courses</a></li>
+            <li><a href="/#!/experiences/create">Add a new course</a></li>
         </ul>
     </div>
+    
     <div data-ng-show="authentication.user && authentication.user.userType == 1">
-        <h1>Hello <span data-ng-bind="authentication.user.fullName"></span> Student</h1>
-        <h3><a href="/signout">Signout</a></h3>
         <ul>
-            <li><a href="/#!/experiences/">List Work Experience</a></li>
-            <li><a href="/#!/experiences/create">Add Work Experience</a></li>
+            <li><a href="/#!/experiences/">View Courses</a></li>
+            <li><a href="/#!/experiences/create">My courses</a></li>
         </ul>
     </div>
 </section>

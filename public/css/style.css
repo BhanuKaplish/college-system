@@ -179,3 +179,12 @@ li a:hover {
   font-size: 30px;
   background: #f6f6f6;
 }
+
+.iconColor > a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.green {
+    background: greenyellow
+}

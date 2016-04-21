@@ -22,7 +22,7 @@
         <div class="col-md-12">
             <h1>My Cousers</h1>
             <ul class="list-group">
-                <li data-ng-repeat="experience in enrollments" class="list-group-item" ng-show="experience.grade == -1">
+                <li data-ng-repeat="experience in enrollments" class="list-group-item" ng-show="experience.grade == -1 && experience.course">
                     <div class="row">
                         <div class="col-md-5" >
                             <span data-ng-bind="experience.course.name"></span>

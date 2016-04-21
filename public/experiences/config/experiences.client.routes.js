@@ -21,6 +21,9 @@ angular.module('experiences').config(['$routeProvider',
         }).
         when('/enrollments', {
             templateUrl: 'experiences/views/list-enrollment.client.view.html'
+        }).
+        when('/transcripts', {
+            templateUrl: 'experiences/views/list-transcript.client.view.html'
         });
     } 
 ]);

@@ -1,8 +1,8 @@
-<section data-ng-controller="ExperiencesController" data-ng-init="findStudent()">
+<section data-ng-controller="ExperiencesController" data-ng-init="findEnroll()">
     <div class="navbar navbar-static">
         <!-- Creating navigation bar -->
         <div class="row green">
-            <div data-ng-show="authentication.user">
+            <div data-ng-show="authentication.user ">
                 <div class="navbar-text">
                     <img src="./img/CollegeLogo.png">
                 </div>
@@ -18,28 +18,25 @@
     </div>
     <h2><a href="/#!/">Home</a></h2>
 
-   <div class="row" data-ng-show="authentication.user && authentication.user.userType == 0">
+    <div class="row" data-ng-show="authentication.user && authentication.user.userType == 1">
         <div class="col-md-12">
-            <h1>All Studetns</h1>
+            <h1>My Transcript</h1>
             <ul class="list-group">
-                <li data-ng-repeat="experience in enrollments" class="list-group-item">
+                <li data-ng-repeat="experience in enrollments" class="list-group-item" ng-show="experience.grade != -1">
                     <div class="row">
-                        <div class="col-md-5">
-                            <a href="/#!/enrollments/{{experience._id}}/edit"><span data-ng-bind="experience.user.fullName"></span></a>
+                        <div class="col-md-5" >
+                            <span data-ng-bind="experience.course.name"></span>
                         </div>
                         <div class="col-md-4">
-                            <span data-ng-bind="experience.grade" ng-show="experience.grade != -1"></span>
-                            <span ng-show="experience.grade == -1">---</span>
+                            <span data-ng-bind="experience.grade"></span>
                         </div>
                         <div class="col-md-3">
                             <small data-ng-bind="experience.created | date: 'medium'"></small>
                         </div>
                     </div>
                 </li>
-            </ul>
-            <div data-ng-hide="!experiences || experiences.length">
-                No courses yet, why don't you <a href="/#!/experiences/create">create one</a>
-            </div>
+            </ul>            
         </div>
     </div>
+  
 </section>

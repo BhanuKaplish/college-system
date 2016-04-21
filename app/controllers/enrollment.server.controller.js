@@ -19,7 +19,7 @@ var getErrorMessage = function(err){
 exports.create = function(req, res){
     var enrollment = new Enrollment(req.body);
     enrollment.user = req.user;
-    enrollment.grade = 0;   
+    enrollment.grade = -1;   
     console.log(req.body);
     enrollment.save(function(err){
         if(err){            
@@ -33,7 +33,7 @@ exports.create = function(req, res){
 };
 
 exports.list = function(req, res){    
-    Enrollment.find({ 'user' : new ObjectId(req.user._id)}).populate('course','name').exec(function(err,enrollment){
+    Enrollment.find({ 'user' : new ObjectId(req.user._id)}).populate('course').exec(function(err,enrollment){
         console.log(enrollment);
         if(err){
             return res.status(400).send({

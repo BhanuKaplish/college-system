@@ -49,7 +49,7 @@ angular.module('experiences').controller('ExperiencesController', ['$scope','$ro
         };
         
         $scope.findEnroll = function(){
-            $scope.enrollments = Enrollments.query();
+            $scope.enrollments = Enrollments.query();            
         };
         
         $scope.findOneEnroll = function(){

@@ -20,25 +20,22 @@
 
     <div class="row" data-ng-show="authentication.user && authentication.user.userType == 1">
         <div class="col-md-12">
-            <h1>All Cousers</h1>
+            <h1>My Cousers</h1>
             <ul class="list-group">
-                <li data-ng-repeat="experience in enrollments" class="list-group-item">
+                <li data-ng-repeat="experience in enrollments" class="list-group-item" ng-show="experience.grade == -1">
                     <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-md-5" >
                             <span data-ng-bind="experience.course.name"></span>
                         </div>
                         <div class="col-md-4">
-                            <span data-ng-bind="experience.grade"></span>
+                            <span data-ng-bind="experience.course.professor"></span>
                         </div>
                         <div class="col-md-3">
                             <small data-ng-bind="experience.created | date: 'medium'"></small>
                         </div>
                     </div>
                 </li>
-            </ul>
-            <div data-ng-hide="!experiences || experiences.length">
-                No courses yet, why don't you <a href="/#!/experiences/create">create one</a>
-            </div>
+            </ul>            
         </div>
     </div>
   

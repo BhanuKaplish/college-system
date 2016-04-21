@@ -1,6 +1,6 @@
 exports.render = function(req, res){
 	res.render('index', {
-		title: 'Manuel Castro',
+		title: 'College-System',
         messages: req.flash('error') || req.flash('info'),
         user: JSON.stringify(req.user)
 	});

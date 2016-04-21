@@ -1,3 +1,10 @@
+/*
+File Name:          experiences.client.routes.js
+Author Name:        Albert Monteiro, Bhanu Kaplish, Manuel Castro
+Website Name:       College-system
+File Description:   This is the routes file for all html files in public folder
+*/
+
 angular.module('experiences').config(['$routeProvider',
     function($routeProvider){
         $routeProvider.

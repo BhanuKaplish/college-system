@@ -1,3 +1,10 @@
+/*
+File Name:          authentication.client.server.js
+Author Name:        Albert Monteiro, Bhanu Kaplish, Manuel Castro
+Website Name:       College-system
+File Description:   This is an authentication file that refers users
+*/
+
 angular.module('experiences').controller('ExperiencesController', ['$scope','$routeParams', '$location', 'Authentication', 'Experiences','Enrollments','EnrollmentsCourse',
     function($scope, $routeParams, $location, Authentication, Experiences, Enrollments, EnrollmentsCourse){
         $scope.authentication = Authentication;

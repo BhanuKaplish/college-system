@@ -1,3 +1,10 @@
+/*
+File Name:          server.js
+Author Name:        Albert Monteiro, Bhanu Kaplish, Manuel Castro
+Website Name:       College-system
+File Description:   This is a server file which listens to the port
+*/
+
 process.env.NODE_ENV = process.env.NODE_ENV ||  'development';
 
 var mongoose = require('./config/mongoose'),

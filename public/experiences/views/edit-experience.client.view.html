@@ -1,54 +1,53 @@
 <section data-ng-controller="ExperiencesController" data-ng-init="findOne()">
-    <h2><a href="/#!/">Home</a></h2>
-    <h1>Edit Articles</h1>
-    <form data-ng-submit="update()" novalidate>
-        <div>
-            <label for="title">Title</label>
-            <div>
-                <input type="text" data-ng-model="experience.company_name" id="title" placeholder="Title" required>
+    <div class="navbar navbar-static">
+        <!-- Creating navigation bar -->
+        <div class="row green">
+            <div data-ng-show="authentication.user">
+                <div class="navbar-text">
+                    <img src="./img/CollegeLogo.png">
+                </div>
+                <div class="navbar-text ">
+                    <h4 data-ng-show="authentication.user && authentication.user.userType == 0">Hello, <span data-ng-bind="authentication.user.fullName"></span> (Staff)</h4>
+                    <h4 data-ng-show="authentication.user && authentication.user.userType == 1">Hello, <span data-ng-bind="authentication.user.fullName"></span> (Student)</h4>
+                </div>
+                <div class="navbar-text pull-right">
+                    <a href="/signout">Logout</a>
+                </div>
             </div>
         </div>
-        <div>
-            <label for="city">City</label> 
-            <div>
-                <input type="text" data-ng-model="experience.city" id="city" placeholder="City" required>
+    </div>
+    <h2><a href="/#!/">Home</a></h2>   
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Edit Course</h3>
+                </div>
+                <div class="panel-body">
+                    <form data-ng-submit="update()" novalidate>
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Course Name" type="text" data-ng-model="experience.name" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Course Code" type="text" data-ng-model="experience.code" id="code" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Course Professor" type="text" data-ng-model="experience.professor" id="professor" required>
+                            </div>
+                            <div class="checkbox">
+                                <div data-ng-show="error">
+                                    <strong data-ng-bind="error"></strong>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="submit" value="Update" />
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
         </div>
-        <div>
-            <label for="country">Country</label> 
-            <div>
-                <input type="text" data-ng-model="experience.country" id="country" placeholder="Country" required>
-            </div>
-        </div>
-        <div>
-            <label for="position">Position</label> 
-            <div>
-                <input type="text" data-ng-model="experience.position" id="position" placeholder="Position" required>
-            </div>
-        </div>
-        <div>
-            <label for="start_date">Start date</label> 
-            <div>
-                <input type="text" datetime="yyyy-MM-dd" data-ng-model="experience.start_date" id="start_date" placeholder=">Start date" required>
-            </div>
-        </div>
-        <div>
-            <label for="end_date">End date</label> 
-            <div>
-                <input type="text" datetime="yyyy-MM-dd"  data-ng-model="experience.end_date" id="end_date" placeholder=">End date" required>
-            </div>
-        </div>
-        <div>
-            <label for="details">Content</label>
-            <div>
-                <textarea data-ng-model="experience.details" id="details" cols="30" rows="10" placeholder="Details" ></textarea>
-            </div>
-        </div>
-        <div>
-            <input type="submit" value="Update">
-        </div>
-        <div data-ng-show="error">
-            <strong data-ng-bind="error"></strong>
-        </div>
-    </form>
+    </div>
+    
 </section>

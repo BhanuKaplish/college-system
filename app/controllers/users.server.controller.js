@@ -50,10 +50,11 @@ exports.signup = function (req, res, next) {
 
         user.provider = 'local';
 
+        console.log(user);
         user.save(function (err) {
             if (err) {
                 var message = getErrorMessage(err);
-
+                console.log(err);    
                 req.flash('error', message);
                 return res.redirect('/signup');
             }

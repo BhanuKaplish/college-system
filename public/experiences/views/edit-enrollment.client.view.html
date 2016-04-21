@@ -1,4 +1,4 @@
-<section data-ng-controller="ExperiencesController">
+<section data-ng-controller="ExperiencesController" data-ng-init="findOneEnroll()">
     <div class="navbar navbar-static">
         <!-- Creating navigation bar -->
         <div class="row green">
@@ -16,32 +16,26 @@
             </div>
         </div>
     </div>
-    <h2><a href="/#!/">Home</a></h2>
-    <div class="row" data-ng-show="authentication.user && authentication.user.userType == 0">
+    <h2><a href="/#!/">Home</a></h2>   
+    <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="login-panel panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Create Course</h3>
+                    <h3 class="panel-title">Set Grade</h3>
                 </div>
                 <div class="panel-body">
-                    <form data-ng-submit="create()" novalidate>
+                    <form data-ng-submit="updateEnroll()" novalidate>
                         <fieldset>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Course Name" type="text" data-ng-model="name" id="name" required>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Course Code" type="text" data-ng-model="code" id="code" required>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Course Professor" type="text" data-ng-model="professor" id="professor" required>
-                            </div>
+                                <input class="form-control" placeholder="Course Grade" type="text" data-ng-model="enrollment.grade" id="name" required>
+                            </div>                            
                             <div class="checkbox">
                                 <div data-ng-show="error">
                                     <strong data-ng-bind="error"></strong>
                                 </div>
                             </div>
                             <div>
-                                <input type="submit" value="Save" />
+                                <input type="submit" value="Update" />
                             </div>
                         </fieldset>
                     </form>
@@ -49,5 +43,5 @@
             </div>
         </div>
     </div>
-
+    
 </section>

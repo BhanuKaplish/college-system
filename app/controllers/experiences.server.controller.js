@@ -32,7 +32,7 @@ exports.create = function(req, res){
 };
 
 exports.list = function(req, res){    
-    Experience.find({ 'creator' : new ObjectId(req.user._id)}).sort('-created').populate('-creator', 'firstName lastName fullName').exec(function(err,experience){
+    Experience.find().sort('-created').exec(function(err,experience){
         if(err){
             return res.status(400).send({
                 message: getErrorMessage(err)
@@ -44,7 +44,7 @@ exports.list = function(req, res){
 };
 
 exports.articleByID = function(req, res, next, id){
-    Experience.findById(id).populate('creator', 'firstName lastName fullName').exec(function(err, experience){
+    Experience.findById(id).exec(function(err, experience){
         if(err) return next (err);
         if(!experience) return next(new Error('Failed to load experience' + id));
         
@@ -59,7 +59,7 @@ exports.read = function(req, res){
 
 exports.update = function(req, res){
     var experience = req.experience;    
-    
+    /*
     experience.company_name = req.body.company_name;    
     experience.city = req.body.city;    
     experience.country = req.body.country;
@@ -67,6 +67,10 @@ exports.update = function(req, res){
     experience.start_date = req.body.start_date;
     experience.end_date = req.body.end_date;   
     experience.details = req.body.details;
+    */
+    experience.name = req.body.name;
+    experience.code = req.body.code;   
+    experience.professor = req.body.professor;
     
     experience.save(function(err){
         if(err){
@@ -81,7 +85,7 @@ exports.update = function(req, res){
 
 exports.delete = function(req, res){
     var experience = req.experience;
-    
+    console.log(experience);
     experience.remove(function(err){
         if(err){
             return res.status(400).send({
@@ -94,7 +98,8 @@ exports.delete = function(req, res){
 };
 
 exports.hasAuthorization = function(req, res, next){
-    if(req.experience.creator.id !== req.user.id){
+    //if(req.experience.creator.id !== req.user.id){
+      if(0 !== req.user.userType){
         return res.status(403).send({
             message: 'User is not authorized'
         });

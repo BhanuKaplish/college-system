@@ -8,7 +8,7 @@ var mongoose = require('mongoose'),
         },        
         course: {
             type: Schema.ObjectId,
-            ref: 'Course'
+            ref: 'Experience'
         },
         user: {
             type: Schema.ObjectId,
@@ -20,4 +20,4 @@ var mongoose = require('mongoose'),
         }, 
     });
     
-    mongoose.model('Enrollment', ExperienceSchema);
+    mongoose.model('Enrollment', EnrollmentSchema);

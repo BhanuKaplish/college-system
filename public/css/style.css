@@ -3,53 +3,13 @@
     300772473
 */
 
-.login-panel {
-    margin-top: 25%;
-}
-
-@media only screen and (max-width: 460px) {
-    .main-box 
-    {
-    left: 50%;
-    width: 90%;
-    margin: auto;
-    }
-    
-    a {
+a {
     display: block;
     background: white;
-    padding: 7px;
-    margin-bottom: 5px;
+    padding: 0px;    
     margin-left: 0px;
     text-decoration: none;
     }
-    
-    input {
-    height: 30px;
-    width: 100%;
-    }
-}
-
-@media only screen and (min-width: 461px) {
-    .main-box 
-    {
-    left: 50%;
-    width: 50%;
-    margin: auto;
-    }
-    
-    a {
-    display: inline-block;
-    background: white;
-    padding: 7px;
-    margin: 5px;
-    text-decoration: none;
-    }
-    
-    input {
-    height: 30px;
-    }
-}
 
 textarea {
     width: 100%;
@@ -147,39 +107,6 @@ form span {
     border-color: black;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
- 
-li {
-  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
-  border-bottom: 1px solid #ccc;
-}
- 
-li:last-child {
-  border: none;
-}
- 
-li a {
-  text-decoration: none;
-  color: #000;
-  display: block;
-  width: 200px;
- 
-  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
-  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
-  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
-  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
-  transition: font-size 0.3s ease, background-color 0.3s ease;
-}
- 
-li a:hover {
-  font-size: 30px;
-  background: #f6f6f6;
-}
-
 .iconColor > a {
     color: inherit;
     text-decoration: none;
@@ -187,4 +114,8 @@ li a:hover {
 
 .green {
     background: greenyellow
+}
+
+.login-panel{
+    margin-top: 0%;
 }

@@ -22,19 +22,16 @@ var UserSchema = new Schema({
     },
     address: {
         type: String,
-        unique: true,
         required: 'Address Number is required',
         trim: true
     },
      city: {
         type: String,
-        unique: true,
         required: 'City is required',
         trim: true
     },
      country: {
         type: String,
-        unique: true,
         required: 'Country is required',
         trim: true
     },

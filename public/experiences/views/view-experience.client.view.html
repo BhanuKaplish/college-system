@@ -1,20 +1,40 @@
 <section data-ng-controller="ExperiencesController" data-ng-init="findOne()">
+    <div class="navbar navbar-static">
+        <!-- Creating navigation bar -->
+        <div class="row green">
+            <div data-ng-show="authentication.user">
+                <div class="navbar-text">
+                    <img src="./img/CollegeLogo.png">
+                </div>
+                <div class="navbar-text ">
+                    <h4 data-ng-show="authentication.user && authentication.user.userType == 0">Hello, <span data-ng-bind="authentication.user.fullName"></span> (Staff)</h4>
+                    <h4 data-ng-show="authentication.user && authentication.user.userType == 1">Hello, <span data-ng-bind="authentication.user.fullName"></span> (Student)</h4>
+                </div>
+                <div class="navbar-text pull-right">
+                    <a href="/signout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <h2><a href="/#!/">Home</a></h2>
-    <h1 data-ng-bind="experience.position"></h1>    
-    <small>
-        <em>Created on</em>
-        <em data-ng-bind="experience.created | date: 'mediumDate'"></em>
-        <em>by</em>
-        <em data-ng-bind="experience.creator.fullName"></em>
-    </small>
-    <p>Company Name: <span data-ng-bind="experience.company_name"></span></p>
-    <p>City: <span data-ng-bind="experience.city"></span></p>
-    <p>Country: <span data-ng-bind="experience.country"></span></p>
-    <p>Start Date: <span data-ng-bind="experience.start_date | date: 'mediumDate'"></span></p>
-    <p>End Date: <span data-ng-bind="experience.end_date | date: 'mediumDate'"></span></p>
-    <p>Details: <span data-ng-bind="experience.details"></span></p>
-    <div data-ng-show="authentication.user._id == experience.creator._id">
-        <a href="/#!/experiences/{{experience._id}}/edit">Edit</a>
-        <a href="#" data-ng-click="delete();">Delete</a>
+
+    <div class="row">
+        <div class="col-md-12 ">
+            <h1 data-ng-bind="experience.name"></h1>
+            <small>
+                    <em>Created on</em>
+                    <em data-ng-bind="experience.created | date: 'mediumDate'"></em>
+                </small>
+            <p>Code: <span data-ng-bind="experience.code"></span></p>
+            <p>Professor: <span data-ng-bind="experience.professor"></span></p>
+            <div data-ng-show="authentication.user && authentication.user.userType == 0">
+                <a href="/#!/experiences/{{experience._id}}/edit">Edit</a>
+                <a href="/#!/experiences/students/{{experience._id}}">View Students</a>
+                <a href="#" data-ng-click="delete();">Delete</a>
+            </div>
+            <div data-ng-show="authentication.user && authentication.user.userType == 1">
+                <a href="/#" data-ng-click="createEnroll();">Enroll</a>
+            </div>
+        </div>
     </div>
 </section>

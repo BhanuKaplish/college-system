@@ -1,6 +1,32 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
     
+     var ExperienceSchema = new Schema({
+        created: {
+            type: Date,
+            default: Date.now
+        },
+        name: {
+            type: String,
+            default: '',
+            trim: true,
+            required: 'Name Cannot be blank'
+        },
+        code: {
+            type: String,
+            default: '',
+            trim: true,
+            required: 'Code Cannot be blank'
+        },        
+        professor: {
+            type: String,
+            default: '',
+            trim: true,
+            required: 'Professor Cannot be blank'
+        }      
+    });
+    
+    /*
     var ExperienceSchema = new Schema({
         created: {
             type: Date,
@@ -51,6 +77,6 @@ var mongoose = require('mongoose'),
             type: Schema.ObjectId,
             ref: 'User'
         }
-    });
+    });*/
     
     mongoose.model('Experience', ExperienceSchema);

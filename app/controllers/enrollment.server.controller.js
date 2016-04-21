@@ -18,10 +18,11 @@ var getErrorMessage = function(err){
 
 exports.create = function(req, res){
     var enrollment = new Enrollment(req.body);
-    enrollment.creator = req.user;
-    
+    enrollment.user = req.user;
+    enrollment.grade = 0;   
+    console.log(req.body);
     enrollment.save(function(err){
-        if(err){
+        if(err){            
             return res.status(400).send({
                 message: getErrorMessage(err)
             });
@@ -32,7 +33,22 @@ exports.create = function(req, res){
 };
 
 exports.list = function(req, res){    
-    Enrollment.find({ 'creator' : new ObjectId(req.user._id)}).sort('-created').populate('-creator', 'firstName lastName fullName').exec(function(err,enrollment){
+    Enrollment.find({ 'user' : new ObjectId(req.user._id)}).populate('course','name').exec(function(err,enrollment){
+        console.log(enrollment);
+        if(err){
+            return res.status(400).send({
+                message: getErrorMessage(err)
+            });
+        }else{
+            res.json(enrollment);
+        }
+    });
+};
+
+exports.listByCourse = function(req, res, next, id){    
+    console.log(id);
+    Enrollment.find({ 'course' : new ObjectId(id)}).populate('user').exec(function(err,enrollment){
+        console.log(enrollment);
         if(err){
             return res.status(400).send({
                 message: getErrorMessage(err)
@@ -44,7 +60,7 @@ exports.list = function(req, res){
 };
 
 exports.articleByID = function(req, res, next, id){
-    Enrollment.findById(id).populate('creator', 'firstName lastName fullName').exec(function(err, enrollment){
+    Enrollment.findById(id).populate('creator').populate('course').exec(function(err, enrollment){
         if(err) return next (err);
         if(!enrollment) return next(new Error('Failed to load enrollment' + id));
         
@@ -60,16 +76,13 @@ exports.read = function(req, res){
 exports.update = function(req, res){
     var enrollment = req.enrollment;    
     
-    enrollment.company_name = req.body.company_name;    
-    enrollment.city = req.body.city;    
-    enrollment.country = req.body.country;
-    enrollment.position = req.body.position;    
-    enrollment.start_date = req.body.start_date;
-    enrollment.end_date = req.body.end_date;   
-    enrollment.details = req.body.details;
+    enrollment.grade = req.body.grade;   
+     console.log(enrollment);
     
     enrollment.save(function(err){
+        console.log(err);
         if(err){
+            console.log(err);
             return res.status(400).send({
                 message: getErrorMessage(err)
             });
@@ -94,7 +107,7 @@ exports.delete = function(req, res){
 };
 
 exports.hasAuthorization = function(req, res, next){
-    if(req.enrollment.creator.id !== req.user.id){
+    if(0 !== req.user.userType){
         return res.status(403).send({
             message: 'User is not authorized'
         });

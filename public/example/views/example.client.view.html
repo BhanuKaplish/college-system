@@ -1,48 +1,43 @@
 <section ng-controller="ExampleController">
-    <div data-ng-show="!authentication.user">   
+    <div data-ng-show="!authentication.user">
         <script>
             if (window.user == null){
                 window.location="/signin";
             }
-        </script>     
+        </script>
         <h1>Welcome to your Work Experice Portal</h1>
         <h2><a href="/signup">Signup</a></h2>
         <h2><a href="/signin">Signin</a></h2>
     </div>
-     <div class= "navbar navbar-static">        <!-- Creating navigation bar -->
-        <div class =  "container green">
-            
-            <div data-ng-show="authentication.user && authentication.user.userType == 0">
-            <img src="./img/CollegeLogo.png">
-            <div class="navbar-text pull-right">
-            <h2>Hello, <span data-ng-bind="authentication.user.fullName"></span> (Staff)</h2>
-                <a href="/signout">Logout</a>
+    <div class="navbar navbar-static">
+        <!-- Creating navigation bar -->
+        <div class="row green">
+            <div data-ng-show="authentication.user">
+                <div class="navbar-text">
+                    <img src="./img/CollegeLogo.png">
+                </div>
+                <div class="navbar-text ">
+                    <h4 data-ng-show="authentication.user && authentication.user.userType == 0">Hello, <span data-ng-bind="authentication.user.fullName"></span> (Staff)</h4>
+                    <h4 data-ng-show="authentication.user && authentication.user.userType == 1">Hello, <span data-ng-bind="authentication.user.fullName"></span> (Student)</h4>
+                </div>
+                <div class="navbar-text pull-right">
+                    <a href="/signout">Logout</a>
+                </div>
             </div>
-            </div>
-            
-            <div data-ng-show="authentication.user && authentication.user.userType == 1">
-            <img src="./img/CollegeLogo.png">
-            <div class="navbar-text pull-right">
-            <h1>Hello, <span data-ng-bind="authentication.user.fullName"></span> (Student)</h1>
-                <a href="/signout">Logout</a>
-            </div>    
-            </div>          
-        
-        </div> 
-    </div> 
-    
- 
+        </div>
+    </div>
+
     <div data-ng-show="authentication.user && authentication.user.userType == 0">
         <ul>
             <li><a href="/#!/experiences/">List Courses</a></li>
             <li><a href="/#!/experiences/create">Add a new course</a></li>
         </ul>
     </div>
-    
+
     <div data-ng-show="authentication.user && authentication.user.userType == 1">
         <ul>
             <li><a href="/#!/experiences/">View Courses</a></li>
-            <li><a href="/#!/experiences/create">My courses</a></li>
+            <li><a href="/#!/enrollments/">My courses</a></li>
         </ul>
     </div>
 </section>
